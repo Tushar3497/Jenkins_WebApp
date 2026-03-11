@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     tools {
-         maven 'Maven'
+        maven 'Maven'
         jdk 'JDK17'
     }
 
@@ -11,7 +11,6 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                
                 git branch: 'main', url: 'https://github.com/Tushar3497/Jenkins_WebApp'
             }
         }
@@ -42,15 +41,15 @@ pipeline {
             }
         }
 
-       stage('Deploy to Tomcat') {
+        stage('Deploy to Tomcat') {
             steps {
-                bat 'copy target\\*.war "D:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\"'
+                bat 'copy target\\*.war "D:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\"'
             }
         }
 
         stage('Start Tomcat Server') {
             steps {
-                bat '"D:\Program Files\Apache Software Foundation\Tomcat 10.1\bin\startup.bat"'
+                bat '"D:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\bin\\startup.bat"'
             }
         }
 
